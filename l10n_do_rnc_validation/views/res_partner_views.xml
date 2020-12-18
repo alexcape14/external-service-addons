@@ -6,10 +6,9 @@
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.view_partner_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='name']" position="attributes">
-                <attribute name="placeholder">Name, RNC or Cédula</attribute>
-            </xpath>
-
+            <field name="name" position="replace">
+                <field name="name" default_focus="1" placeholder="Nombre, RNC o Cédula" widget='dgii_autocomplete'/>
+            </field>
         </field>
     </record>
 

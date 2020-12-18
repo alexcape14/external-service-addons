@@ -11,4 +11,14 @@
         <field name="value">false</field>
     </record>
 
+    <record id="l10n_do_rnc_autocomplete_api_url" model="ir.config_parameter">
+        <field name="key">rnc.autocomplete.api.url</field>
+        <field name="value">https://api.jsonbin.io</field>
+    </record>
+
+    <record id="l10n_do_rnc_autocomplete_api_token" model="ir.config_parameter">
+        <field name="key">rnc.autocomplete.api.token</field>
+        <field name="value">$2b$10$A1/1OH6/UEAgq0Y7IKSDROHTBtzVEklcSAbQGVo0cj421sa9E5LFK</field>
+    </record>
+
 </odoo>
