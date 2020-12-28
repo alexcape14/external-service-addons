@@ -5,19 +5,19 @@
 .o_ncf_autocomplete_suggestion {
      width: 400px;
      padding: 0.5rem;
-}
+     &.ui-state-active {
 
-&.ui-state-active {
     border: none;
     background-color: #e9ecef;
     color: $o-main-text-color;
     margin: 0px;
 }
-
+}
 .o_ncf_autocomplete_info {
     display: inline-block;
     margin-top: 5px;
     margin-left: 5px;
+
     .o_ncf_autocomplete_info_name {
     font-weight: bold;
 
@@ -29,4 +29,5 @@
         display: inline-block;
         width: 320px;
     }
+}
 }
