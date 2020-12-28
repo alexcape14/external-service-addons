@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="assets_backend" name="NCF Autocomplete Assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" type="text/scss" href="/l10n_do_rnc_validation/static/src/scss/ncf_autocomplete.scss"/>
+            <script type="text/javascript" src="/l10n_do_rnc_validation/static/src/js/ncf_autocomplete.js" />
+        </xpath>
+    </template>
+</odoo>

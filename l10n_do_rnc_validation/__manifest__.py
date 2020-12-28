@@ -13,6 +13,7 @@
         'base_setup',
     ],
     'data': [
+        'static/src/xml/ncf_autocomplete_template.xml',
         'views/res_partner_views.xml',
         'views/res_config_settings_views.xml',
         'data/ir_config_parameter_data.xml',
