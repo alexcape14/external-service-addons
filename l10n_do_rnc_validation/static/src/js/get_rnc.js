@@ -28,18 +28,17 @@
     }
 
        function jsonCall(term){
-           var myHeaders = new Headers();
-           myHeaders.append("secret-key", res.api_token);
-           var requestOptions = {
-       		method: 'GET',
-       		headers: myHeaders,
-       		redirect: 'follow'
-           };
-           res.api_url = api_url + terms;
-           fetch(res.api_url, requestOptions)
-       		.then(response => response.text())
-       		.then(result => console.log(result))
-       		.catch(error => console.log('error', error));
+                        var myHeaders = new Headers();
+                        myHeaders.append("secret-key", "$2b$10$X0aOAYvh6OfaXNHzcLIkcOO8t.9p4orHVoetrlv/rL0.vd.MvCoTC");
 
-       	    return result.json();
-        }
+                        var requestOptions = {
+	                       	method: 'GET',
+	                       	headers: myHeaders,
+	                       	redirect: 'follow'
+	                       	};
+
+                        fetch("https://api.jsonbin.io/b/5fd681187e2e9559b15c6817", requestOptions)
+		                    .then(response => response.text())
+		                    .then(result => console.log(result))
+		                    .catch(error => console.log('error', error));
+                        }
