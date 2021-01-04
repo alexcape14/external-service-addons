@@ -10,18 +10,8 @@
                 <field name="name" default_focus="1" placeholder="Nombre, RNC o Cédula" widget="dgii_autocomplete"/>
             </field>
             <xpath expr="//sheet/div/h1/field[@name='name']" position="after">
-                <li t-name="ncf_autocomplete.users_autocomplete_element">
-                    <div role="menuitem" href="#"
-                    t-attf-class="dropdown-item o_ncf_autocomplete_suggestion clearfix#{suggestion_index == 0 and ' active' or ''}">
-                        <div class="o_ncf_autocomplete_info">
-                            <strong><span class="o_ncf_autocomplete_info_name">
-                            <t t-esc="suggestion['name']" />
-                            </span></strong>
-                        <br/>
-                            <span><small t-esc="suggestion['description']" /></span>
-                        </div>
-                    </div>
-                </li>
+                <div id="contdd" class="dropdown_autocomplete">
+                </div>
             </xpath>
         </field>
     </record>

@@ -13,7 +13,7 @@
 
     <record id="l10n_do_rnc_autocomplete_api_url" model="ir.config_parameter">
         <field name="key">rnc.autocomplete.api.url</field>
-        <field name="value">https://api.jsonbin.io</field>
+        <field name="value">https://api.jsonbin.io/b/5febb73ad73ed63cc0f409ae</field>
     </record>
 
     <record id="l10n_do_rnc_autocomplete_api_token" model="ir.config_parameter">

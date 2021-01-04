@@ -9,7 +9,6 @@ odoo.define('l10n_do_rnc_validation.ncf_autocomplete', function (require) {
     className: 'o_field_ncf_autocomplete',
 
     events: _.extend({}, FieldChar.prototype.events, {
-        'click .o_ncf_autocomplete_suggestion': '_onSuggestionClicked',
         'keyup': '_onKeyup',
     }),
 
@@ -33,28 +32,46 @@ odoo.define('l10n_do_rnc_validation.ncf_autocomplete', function (require) {
                       "secret-key": "$2b$10$X0aOAYvh6OfaXNHzcLIkcOO8t.9p4orHVoetrlv/rL0.vd.MvCoTC"
                  },
             };
-
-            $.ajax(settings).done(function (response) {
-                 console.log(response);
-            }).then(function (suggestions) {
-                    response(suggestions);
-                });
-            },
-            select: function (ev, ui) {
-                self.$input.val(ui.item.name);
-                self._selectTwitterUser(ui.item);
-                ev.preventDefault();
+                $.ajax(settings).done(function (response) {
+                     console.log(response.data);
+                     $("#contdd").html("");
+                     for(var i = 0; i < response.data.length; i++){
+                        var itemName = response.data;
+                        var query = (itemName[i]['business_name']);
+                        var div = document.getElementById("contdd");
+                        var p = document.createElement("p");
+                        p.appendChild(document.createTextNode(query));
+                        div.appendChild(p);
+                     }
+                })
             },
             html: true,
             minLength: 4,
-            delay: 500,
-        }).data('ui-autocomplete')._renderItem = function (ul, item){
-            return $(QWeb.render('ncf_autocomplete.users_autocomplete_element', {
-                suggestion: item
-            })).appendTo(ul);
-        };
+        });
+    },
+
+    _load_parameters: function (){
+        var self = this;
+        var args = arguments;
+        var defs = [];
+        this.custom_params = {};
+            _.each(['rnc.autocomplete.api.url', 'rnc.autocomplete.api.token'], function (param) {
+                var def = self._rpc({
+                    model: 'ir.config_parameter',
+                    method: 'get_param',
+                    args: [param]
+                })
+                .then(function (res) {
+                    self.custom_params[param] = res;
+                });
+                defs.push(def);
+                console.log(defs);
+            })
+
+        return defs;
     }
 });
+
 
     field_registry.add('dgii_autocomplete', FieldDgiiAutoComplete);
     return {
