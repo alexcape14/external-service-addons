@@ -1,0 +1,22 @@
+.dropdown_autocomplete {
+    position: absolute;
+    font-size: 35%;
+    background-color: #f3f2f2;
+    z-index: 2;
+
+    p {
+        background-color: white;
+        width: 95%;
+        font-weight: bold;
+        box-shadow: 2px 2px 5px #bfbfbf;;
+        margin-top: 2.5%;
+
+        spam {
+            font-weight: normal;
+            font-style: italic;
+        }
+    }
+}
+.dropdown_autocomplete :hover{
+    background-color: lightgray;
+}

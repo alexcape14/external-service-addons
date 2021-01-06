@@ -21,7 +21,6 @@ odoo.define('l10n_do_rnc_validation.ncf_autocomplete', function (require) {
         var self = this;
 
         this.$input.autocomplete({
-            classes: {'ui-autocomplete': 'o_social_ncf_autocomplete'},
             source: function (request, response) {
 
             var settings = {
@@ -36,18 +35,25 @@ odoo.define('l10n_do_rnc_validation.ncf_autocomplete', function (require) {
                      console.log(response.data);
                      $("#contdd").html("");
                      for(var i = 0; i < response.data.length; i++){
-                        var itemName = response.data;
-                        var query = (itemName[i]['business_name']);
+                        var item = response.data;
+                        var queryname = (item[i]['business_name']);
+                        var queryrnc = (item[i]['rnc']);
                         var div = document.getElementById("contdd");
                         var p = document.createElement("p");
-                        p.appendChild(document.createTextNode(query));
+                        var spam = document.createElement("spam")
+                        var br = document.createElement("br")
+                        p.appendChild(document.createTextNode(queryname));
+                        spam.appendChild(document.createTextNode(queryrnc));
                         div.appendChild(p);
+                        p.appendChild(br);
+                        p.appendChild(spam);
                      }
                 })
             },
             html: true,
             minLength: 4,
         });
+        this.$in
     },
 
     _load_parameters: function (){
